@@ -9,7 +9,7 @@
 
 **Transform Claude into an institutional-grade trading analyst — for free.**
 
-*Built by [Sami Bajwa](https://samioutic.com) · [Samioutic](https://samioutic.com) · [LinkedIn](https://www.linkedin.com/in/samibajwa)*
+*Built by [Sami Bajwa](https://samioutic.com) · [Samioutic](https://samioutic.com) · [LinkedIn](https://www.linkedin.com/in/samibajwa106)*
 
 </div>
 
