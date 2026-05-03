@@ -148,7 +148,7 @@ The `references/` folder contains deep knowledge files that CIPHER uses internal
 I teach people how to use AI tools like Claude and n8n to build real systems and earn online. This skill is one of many free resources I share with my community.
 
 - 🌐 Website: [samioutic.com](https://samioutic.com)
-- 💼 LinkedIn: [linkedin.com/in/samibajwa](https://www.linkedin.com/in/samibajwa)
+- 💼 LinkedIn: [linkedin.com/in/samibajwa](https://www.linkedin.com/in/samibajwa106)
 - 📱 WhatsApp Channel: Available on [samioutic.com](https://samioutic.com)
 
 ---
