@@ -1,0 +1,65 @@
+name: Validate Skill Files
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Check SKILL.md exists and has content
+        run: |
+          if [ ! -f "SKILL.md" ]; then
+            echo "❌ SKILL.md is missing!"
+            exit 1
+          fi
+          lines=$(wc -l < SKILL.md)
+          if [ "$lines" -lt 50 ]; then
+            echo "❌ SKILL.md seems too short ($lines lines). Check the file."
+            exit 1
+          fi
+          echo "✅ SKILL.md found ($lines lines)"
+
+      - name: Check all reference files exist
+        run: |
+          files=(
+            "references/technical-indicators.md"
+            "references/candlestick-patterns.md"
+            "references/risk-management.md"
+            "references/economic-calendar-guide.md"
+            "references/crypto-onchain.md"
+            "references/smart-money-concepts.md"
+            "references/market-cycles.md"
+            "references/inter-market-analysis.md"
+            "references/trading-psychology.md"
+          )
+          for f in "${files[@]}"; do
+            if [ ! -f "$f" ]; then
+              echo "❌ Missing: $f"
+              exit 1
+            else
+              echo "✅ Found: $f"
+            fi
+          done
+
+      - name: Check SKILL.md has required sections
+        run: |
+          required=("CIPHER" "SIGNAL" "STOP LOSS" "TAKE PROFIT" "RISK")
+          for keyword in "${required[@]}"; do
+            if ! grep -q "$keyword" SKILL.md; then
+              echo "❌ SKILL.md missing required keyword: $keyword"
+              exit 1
+            else
+              echo "✅ Found: $keyword"
+            fi
+          done
+
+      - name: All checks passed
+        run: echo "🎉 All validation checks passed!"
